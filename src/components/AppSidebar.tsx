@@ -70,7 +70,7 @@ const items = [
   },
 ];
 
-function AppSidebar() {
+const AppSidebar = () => {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="py-4">
@@ -79,46 +79,39 @@ function AppSidebar() {
             <SidebarMenuButton asChild>
               <Link href="/">
                 <Image src="/logo.svg" alt="logo" width={20} height={20} />
-                <span>Amaan</span>
+                <span>Lama Dev</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-
       <SidebarSeparator />
-
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => {
-                return (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
-                      <Link href={item.url}>
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </Link>
-                    </SidebarMenuButton>
-                    {item.title === "Inbox" && (
-                      <SidebarMenuBadge>24</SidebarMenuBadge>
-                    )}
-                  </SidebarMenuItem>
-                );
-              })}
+              {items.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                  {item.title === "Inbox" && (
+                    <SidebarMenuBadge>24</SidebarMenuBadge>
+                  )}
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
         <SidebarGroup>
           <SidebarGroupLabel>Projects</SidebarGroupLabel>
           <SidebarGroupAction>
-            <Plus />
-            <span className="sr-only">Add Project</span>
+            <Plus /> <span className="sr-only">Add Project</span>
           </SidebarGroupAction>
-
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -129,29 +122,26 @@ function AppSidebar() {
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/#">
                     <Plus />
-                    Add Projects
+                    Add Project
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
-        {/* COLLAPSIBLE */}
+        {/* COLLAPSABLE */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Collapsible Group
+                Collapsable Group
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
-
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
@@ -163,12 +153,11 @@ function AppSidebar() {
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
-
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <Link href="/#">
                         <Plus />
-                        Add Projects
+                        Add Project
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -177,11 +166,9 @@ function AppSidebar() {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-
         {/* NESTED */}
         <SidebarGroup>
           <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
-
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -191,7 +178,6 @@ function AppSidebar() {
                     See All Projects
                   </Link>
                 </SidebarMenuButton>
-
                 <SidebarMenuSub>
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
@@ -201,7 +187,6 @@ function AppSidebar() {
                       </Link>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
-
                   <SidebarMenuSubItem>
                     <SidebarMenuSubButton asChild>
                       <Link href="/#">
@@ -212,33 +197,23 @@ function AppSidebar() {
                   </SidebarMenuSubItem>
                 </SidebarMenuSub>
               </SidebarMenuItem>
-
-              {/* <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/#">
-                    <Plus />
-                    Add Projects
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem> */}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
-                  <User2 /> Amaan Shaikh <ChevronUp className="ml-auto" />
+                  <User2 /> John Doe <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>Account</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
-                <DropdownMenuItem>Sign Out</DropdownMenuItem>
+                <DropdownMenuItem>Setting</DropdownMenuItem>
+                <DropdownMenuItem>Sign out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
@@ -246,6 +221,6 @@ function AppSidebar() {
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
 
 export default AppSidebar;
